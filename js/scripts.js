@@ -24,13 +24,16 @@ $(document).ready(function(){
         if (!(vowels.includes(splitWord[index])) && !(consonants.includes(splitWord[index]))) {
           console.log(splitWord[index]);
           return splitWord;
-        } else if (splitWord[index] === "i" || splitWord[index] === "a"){
-          return  (splitWord[index] + "way");
+          console.log(splitWord);
+        } else if (splitWord.length < 2 && splitWord[index] === "i" || splitWord[index] === "a") {
+          return  (splitWord[index] + "ay");
+        } else if ((splitWord.length > 1) && (vowels.includes(splitWord[index=0]))) {
+          return (splitWord + "way")
         }
       }
     };
 
-    var result = pigLatin(splitWord);
+    var result = pigLatin(splitWord.join(""));
     console.log(result);
 
     $('#result').text(result);

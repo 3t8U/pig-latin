@@ -5,7 +5,7 @@
 #### By _**Nate Powers & Malcolm Womble**_
 
 ## Description
-   
+
 _This application takes a user inputted year and defines it as either a leap year or not a leap year_
 
 ##Specs
