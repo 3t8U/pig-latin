@@ -25,23 +25,28 @@ $(document).ready(function(){
           console.log(splitWord[index]);
           return splitWord;
           console.log(splitWord);
-        } else if (splitWord.length < 2 && splitWord[index] === "i" || splitWord[index] === "a") {
+        } else if ((splitWord.length < 2) && (splitWord[index] === "i" || splitWord[index] === "a")) {
           return  (splitWord[index] + "ay");
         } else if ((splitWord.length > 1) && (vowels.includes(splitWord[index=0]))) {
           return (splitWord + "way")
-        }
-      }
+        } else if ((splitWord.length > 2) && (consonants.includes(splitWord[index===0]))) {
+          return ((splitWord.slice(1)) + (splitWord.slice(0,1) + "ay"))
+        } else if ((splitWord.length > 2) && (consonants.includes((splitWord[index===0]) || (splitWord[index===1])))) {
+          return ((splitWord.slice(2)) + (splitWord.slice(0,2) + "ay"))
+        // } else if ((splitWord.length > 2) && (consonants.includes(splitWord[0,3]))) {
+        //   return ((splitWord.slice(3)) + (splitWord.slice(0,3) + "ay"))
+        // }
+      };
     };
 
-    var result = pigLatin(splitWord.join(""));
-    console.log(result);
+      var result = pigLatin(splitWord.join(""));
+      console.log(result);
 
-    $('#result').text(result);
+      $('#result').text(result);
 
-    $("#result").show();
+      $("#result").show();
   });
 });
-
 
 
 
