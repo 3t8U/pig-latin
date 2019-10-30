@@ -3,10 +3,11 @@ $(document).ready(function(){
     event.preventDefault();
     // business logic
     var vowels = [ 'a', 'e', 'i', 'o' ,'u' ]
-    console.log(vowels)
 
     var consonants = [ 'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z']
-    console.log(consonants);
+
+    var singleLetterWords = ['a', 'i']
+    console.log(singleLetterWords);
 
     var userSentence = $("input#userInput").val();
     console.log(userSentence);
@@ -17,13 +18,14 @@ $(document).ready(function(){
     var splitWord = userSentence.split("");
     console.log(splitWord);
 
-    var pigLatin = function(splitWord){
-      for(var index = 0; index < splitWord.length; index++) {
+    var pigLatin = function(splitWord) {
+      for (var index = 0; index < splitWord.length; index++) {
         console.log(index);
-        if (!(vowels.includes(splitWord)) && !(consonants.includes(splitWord)))  {
+        if (!(vowels.includes(splitWord[index])) && !(consonants.includes(splitWord[index]))) {
+          console.log(splitWord[index]);
           return splitWord;
-        } else {
-          return "Whoops";
+        } else if (splitWord[index] === "i" || splitWord[index] === "a"){
+          return  (splitWord[index] + "way");
         }
       }
     };
@@ -31,7 +33,7 @@ $(document).ready(function(){
     var result = pigLatin(splitWord);
     console.log(result);
 
-    $('#result').text(result.join(""));
+    $('#result').text(result);
 
     $("#result").show();
   });
